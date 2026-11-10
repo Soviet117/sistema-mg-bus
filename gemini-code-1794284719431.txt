@@ -1,0 +1,41 @@
+ENTREVISTA A LA EMPRESA DE TRANSPORTES INTERNACIONAL "MG BUS"
+Proyecto Final de Algoritmos y Estructura de Datos
+
+--- INTRODUCCIÓN ---
+Presentador: Buenas tardes, ingeniera Yanina. El día de hoy vamos a realizar la entrevista de nuestro proyecto final de algoritmos y estructura de datos. En esta ocasión hemos tenido la oportunidad de entrevistar al encargado de la empresa Internacional MG Bus. Acompáñennos.
+
+--- DESARROLLO DE LA ENTREVISTA ---
+
+1. INFORMACIÓN GENERAL DE LA EMPRESA
+Entrevistador: La primera pregunta es este, ¿a qué se dedica la empresa y desde cuándo funciona?
+Encargado: Ya, la empresa se dedica exclusivamente a la venta de pasajes interprovinciales y también a la recepción de encomiendas. La empresa funciona desde el año 2018 en el sector de la selva. Pero funciona mucho más antes en el sector de la costa, pero con destinos solamente entre distritos nada más, no interprovinciales.
+
+2. PERSONAL Y CARGOS
+Entrevistador: La pregunta sería, este, ¿cuántos trabajadores trabajan y qué cargos tienen?
+Encargado: Eh... En esta oficina solo trabajamos dos, lo que es el administrador y el counter. Nada más.
+
+3. VOLUMEN DE OPERACIONES
+Entrevistador: ¿Cuántos clientes, productos, pedidos y vehículos manejan en un día normal?
+Encargado: Superando la pregunta sería... cuántos clientes manejamos es muy incierto porque en oficina puede variar dependiendo de cómo esté el día, ¿no? Cómo sea la demanda de pasajeros. Pero mayormente en pasajeros, de 10 a 15 pasajeros diarios. Las encomiendas que recibimos son un poco escasas en estos tiempos. Y en cuanto a vehículos, antes, cuando había más clientela, eran 3 servicios (3 buses o 3 descargas), que iban a Sullana en un turno, y dos turnos más que van a Trujillo - Chiclayo, uno salía a las 4 de la tarde y el otro salía a las 7 de la noche.
+
+4. ATENCIÓN AL CLIENTE
+Entrevistador: ¿En qué orden atienden a sus clientes o a sus pedidos? ¿Hay casos a los cuales se atienda primero?
+Encargado: La atención en nuestra oficina es mayormente por orden de llegada. Pero conforme a ley se atiende especialmente a las personas discapacitadas, adultos mayores y embarazadas.
+
+5. REGISTRO DE INFORMACIÓN Y SISTEMAS
+Entrevistador: ¿Cómo registran la información del proceso? ¿Utilizan cuaderno, Excel u otro sistema?
+Encargado: Del proceso de venta de pasajes como tanto encomiendas, tenemos un sistema que es un sistema web que nos brinda la empresa.
+
+6. EFICIENCIA EN EL PROCESO
+Entrevistador: ¿Cuánto tiempo le toma buscar un dato o una encomienda en el sistema?
+Encargado: A ver, para el registro de pasajeros utilizamos un sistema que, al momento que vamos a registrar el pasaje o al cliente, solamente colocando su DNI, nos bota al segundo todos sus datos, lo que es nombre y apellido, porque el sistema tiene integrado el de la RENIEC. En cuanto a las encomiendas, también serían microsegundos porque la búsqueda es rápida y al mismo tiempo el sistema nos responde rápidamente.
+
+7. ERRORES FRECUENTES
+Entrevistador: ¿Qué errores o problemas se presentan con frecuencia durante ese proceso?
+Encargado: Esos problemas mayormente no se presentan por el sistema, sino mayormente es de nosotros mismos. A veces con demasiada aglomeración de personas o de clientes nos equivocamos. Yo por mi parte me he equivocado algunas veces, pero como ya llevo años trabajando acá, no presentamos tantos errores como antes. No es culpa del sistema, mayormente es culpa del usuario que está manejando el sistema.
+
+8. LIMITACIONES DEL SISTEMA
+Entrevistador: ¿Qué información les gustaría consultar rápidamente y hoy no pueden o tienen acceso restringido?
+Encargado: Nuestro sistema que nosotros hoy en día manejamos es muy completo por decir así, pero nosotros como agencia tenemos varias restricciones. Así como por ejemplo, no podemos realizar la impresión del manifiesto de pasajeros, solamente lo pueden realizar las oficinas centrales.
+```eof
+
