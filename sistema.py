@@ -87,7 +87,7 @@ class SistemaTransporte:
         except (TypeError, ValueError):
             raise ValueError("La edad debe ser un numero entero.")
         if edad < 0 or edad > 120:
-            raise ValueError("La edad debe estar entre 0 y 120 anios.")
+            raise ValueError("La edad debe estar entre 0 y 120.")
         if telefono is None:
             telefono = "No registrado"
         telefono = telefono.strip()

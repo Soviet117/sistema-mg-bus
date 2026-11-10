@@ -221,6 +221,10 @@ GRAFO (grafo_rutas.py)
   La matriz de adyacencia guarda 1 si hay ruta directa y 0 si no.
   Warshall calcula la matriz de alcanzabilidad: 1 si se puede llegar
   aunque sea con escalas.
+  El grafo es dirigido: se registra la ruta que la agencia vende. Por
+  eso Lima aparece solo como destino, sin rutas de salida; así también
+  se demuestra que Warshall responde "no existe ruta" cuando no hay
+  camino.
 
 BÚSQUEDAS (busquedas.py)
   Secuencial: recorre desde la primera posición hasta encontrar el
@@ -285,7 +289,7 @@ BÚSQUEDAS (busquedas.py)
   ----|----------------------------------------------|---------------------------------------------------------|---------
    1  | Opción 1                                     | Se listan 5 viajes; V005 aparece LLENO                   | OK
    2  | Opción 2, viaje V001                         | Mapa 10x4 con 8 ocupados y 32 libres                     | OK
-   3  | Opción 3, V001, DNI 80123456, asiento F1-C3   | Se vende P026, asiento ocupado, quedan 31 libres         | OK
+   3  | Opción 3, V001, DNI 80123456, asiento F1-C3   | Se vende P026 (en ejecución nueva), quedan 31 libres     | OK
    4  | Opción 3, DNI repetido 80123456 en V001       | Error: el pasajero ya tiene pasaje en ese viaje         | OK
    5  | Opción 3, V005                               | Error: el viaje está lleno; sugiere lista de espera      | OK
    6  | Opción 4, V001, DNI 70123456                  | P001 pasa a Anulado y se apila                           | OK
