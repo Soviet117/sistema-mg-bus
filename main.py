@@ -305,3 +305,5 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\n\n  Programa interrumpido por el usuario. Hasta pronto.")
+    except EOFError:
+        print("\n\n  Entrada finalizada. Hasta pronto.")
