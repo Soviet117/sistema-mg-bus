@@ -1,0 +1,16 @@
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Carpetas temporales usadas durante el desarrollo
+.uvcache/
+.tmp/
+
+# Configuracion local del editor
+.vscode/
+.idea/
