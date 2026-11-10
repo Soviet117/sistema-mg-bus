@@ -1,0 +1,382 @@
+========================================================================
+ SISTEMA DE VENTA DE PASAJES Y RUTAS - MG BUS
+ Proyecto Final - Algoritmos y Estructuras de Datos
+ UCSS Filial Nueva Cajamarca - Ciclo 2026-2
+ Rubro 2: Empresa de transporte interprovincial
+========================================================================
+
+1. ¿QUÉ HACE EL SISTEMA?
+------------------------------------------------------------------------
+Es una aplicación de consola, sin base de datos y sin librerías externas.
+Permite:
+  - Ver los viajes programados y sus asientos disponibles.
+  - Mostrar el mapa de asientos de cada bus (matriz).
+  - Vender un pasaje eligiendo viaje y asiento.
+  - Anular un pasaje y deshacer la última anulación (pila).
+  - Ver la lista de pasajeros de cada viaje (lista enlazada).
+  - Consultar si existe ruta entre dos ciudades (grafo + Warshall).
+  - Administrar una lista de espera para viajes llenos (cola).
+  - Buscar un pasajero por DNI (búsqueda secuencial).
+  - Buscar una ciudad por nombre (búsqueda binaria).
+  - Ver un reporte general con recaudación y ocupación.
+
+2. REQUISITOS Y EJECUCIÓN
+------------------------------------------------------------------------
+Requisitos:
+  - Python 3 (probado con Python 3.14).
+  - Visual Studio Code (recomendado).
+  - No se instala nada con pip.
+
+Pasos en VS Code:
+  1. Abrir la carpeta del proyecto (File > Open Folder).
+  2. Abrir la terminal integrada (Terminal > New Terminal).
+  3. Verificar que la terminal esté en la carpeta donde está main.py.
+  4. Ejecutar:
+
+         python main.py
+
+     En Windows, si "python" no funciona, usar:
+
+         py main.py
+
+  5. Elegir una opción del menú y presionar ENTER.
+  6. Para salir, elegir la opción 0.
+
+Importante: ejecutar siempre desde la carpeta principal del proyecto,
+porque los archivos se importan entre sí (por ejemplo, main.py importa
+sistema.py y la carpeta estructuras/).
+
+3. ORGANIZACIÓN DE LOS ARCHIVOS
+------------------------------------------------------------------------
+transporte/
+|
+|-- main.py                  Menú principal y flujo de cada opción.
+|-- sistema.py               Lógica y "DAO" en memoria: ventas, anulaciones,
+|                            rutas, cola y reportes.
+|-- modelos.py               Clases del negocio: Ciudad, Bus, Viaje,
+|                            Pasajero y Pasaje.
+|-- datos_prueba.py          Datos de prueba escritos en el código.
+|-- vistas.py                Tablas, menús, mapas y mensajes de consola.
+|-- validaciones.py          Reglas de validación y lectura de datos.
+|
+|-- estructuras/
+    |-- __init__.py
+    |-- nodo.py               Clase Nodo (dato + siguiente).
+    |-- lista_pasajeros.py    Lista enlazada simple de pasajes.
+    |-- pila.py               Pila LIFO para las anulaciones.
+    |-- cola.py               Cola FIFO para la lista de espera.
+    |-- matriz_asientos.py    Matriz bidimensional de asientos.
+    |-- grafo_rutas.py        Grafo dirigido + algoritmo de Warshall.
+    |-- busquedas.py          Búsqueda secuencial y búsqueda binaria.
+
+Cada archivo tiene un comentario encima de cada función explicando qué
+hace. Los nombres están en español para que el código sea fácil de
+explicar en la exposición.
+
+4. DISTRIBUCIÓN DEL TRABAJO (COMPLETAR CON LOS NOMBRES)
+------------------------------------------------------------------------
+Reemplazar "COMPLETAR" por el nombre del integrante que programó y
+explicará cada módulo. Todos deben poder explicar su parte y hacer una
+prueba de escritorio.
+
+  Integrante 1: COMPLETAR
+    Módulos: estructuras/nodo.py, estructuras/lista_pasajeros.py,
+             validaciones.py
+    Explica: qué es un nodo, cómo se inserta/elimina/busca en una lista
+             enlazada y cómo se validan los datos.
+
+  Integrante 2: COMPLETAR
+    Módulos: estructuras/pila.py, estructuras/cola.py, datos_prueba.py
+    Explica: LIFO y FIFO, apilar/desapilar, encolar/desencolar y los
+             datos de prueba.
+
+  Integrante 3: COMPLETAR
+    Módulos: estructuras/matriz_asientos.py, modelos.py
+    Explica: la matriz de asientos, las clases Ciudad, Bus, Viaje,
+             Pasajero y Pasaje, y la relación entre ellas.
+
+  Integrante 4: COMPLETAR
+    Módulos: estructuras/grafo_rutas.py, estructuras/busquedas.py
+    Explica: matriz de adyacencia, Warshall, búsqueda secuencial y
+             búsqueda binaria.
+
+  Integrante 5: COMPLETAR
+    Módulos: sistema.py, vistas.py, main.py
+    Explica: cómo se conecta todo, el menú, el flujo de venta y el
+             reporte general.
+
+5. DATOS DE PRUEBA CARGADOS AL INICIAR
+------------------------------------------------------------------------
+El sistema cumple con más de 15 registros de prueba:
+
+  - 10 ciudades.
+  - 15 rutas directas en el grafo.
+  - 5 viajes programados.
+  - 25 ventas realizadas al cargar (1 queda anulada).
+  - 24 pasajes activos.
+  - 1 anulación en la pila (P014).
+  - 2 pasajeros en la cola de espera (Gladys y Óscar).
+  - 156 asientos en total (los buses tienen 40, 32 o 4 asientos).
+
+Viajes de prueba:
+  V001  Nueva Cajamarca -> Moyobamba     06:00   S/ 25.00   Bus 10x4
+  V002  Nueva Cajamarca -> Tarapoto      08:30   S/ 35.00   Bus 10x4
+  V003  Nueva Cajamarca -> Rioja         10:00   S/ 12.00   Bus 8x4
+  V004  Tarapoto -> Chiclayo             19:00   S/ 90.00   Bus 10x4
+  V005  Nueva Cajamarca -> Bagua Grande  14:00   S/ 20.00   Minibús 2x2 (LLENO)
+
+Casos útiles para la demostración:
+  - Ruta directa: Nueva Cajamarca -> Tarapoto.
+  - Ruta con escalas: Nueva Cajamarca -> Lima (Warshall).
+  - Ruta que no existe: Lima -> Nueva Cajamarca.
+  - Ruta que no existe: Chiclayo -> Nueva Cajamarca.
+  - Viaje lleno: V005 (tiene 4 asientos y los 4 están vendidos).
+  - DNI para buscar: 70123456 (Ana Torres, viaje V001, asiento F1-C1).
+  - DNI anulado: 70234566 (Raúl Campos, se puede deshacer en opción 5).
+  - DNI en espera: 70678901 (Gladys, primera en la cola del V005).
+  - DNI en espera: 70678902 (Óscar, segundo en la cola del V005).
+  - Siguiente código de pasaje al iniciar: P026.
+
+6. CÓMO SE CUMPLE LA RÚBRICA
+------------------------------------------------------------------------
+  Clases y TAD (mínimo 3):
+    Ciudad, Bus, Viaje, Pasajero y Pasaje en modelos.py.
+    Además, SistemaTransporte, MatrizAsientos, GrafoRutas, Pila, Cola
+    y ListaPasajeros.
+
+  Estructuras de control:
+    main.py tiene un while para el menú, if/elif para las opciones y
+    validaciones.py valida números, DNI, nombres, teléfonos y edades.
+
+  Arreglo o matriz:
+    MatrizAsientos usa una matriz (lista de listas) de tamaño fijo.
+    También se usan arreglos para ordenar las ciudades y buscar.
+
+  Búsqueda secuencial y binaria:
+    estructuras/busquedas.py implementa las dos búsquedas a mano.
+    No se usan las funciones in ni index de Python para buscar.
+
+  Lista enlazada:
+    estructuras/lista_pasajeros.py tiene la clase Nodo, insertar al
+    inicio/final, eliminar por DNI, buscar por DNI, contar, recorrer y
+    mostrar. Se usa en cada Viaje para guardar sus pasajeros.
+
+  Pila y cola:
+    estructuras/pila.py y estructuras/cola.py se implementan con Nodo,
+    sin append/pop ni collections.deque.
+    La pila guarda las anulaciones; la cola guarda la lista de espera.
+
+  Grafo:
+    estructuras/grafo_rutas.py usa matriz de adyacencia y Warshall.
+    Es obligatorio para el rubro 2 y está integrado con la opción 7.
+
+  Organización en módulos:
+    Un archivo por estructura, un archivo de lógica (sistema.py), uno
+    de modelos, uno de vistas, uno de validaciones, uno de datos y
+    main.py.
+
+  Datos de prueba:
+    datos_prueba.py carga 10 ciudades, 15 rutas, 5 viajes, 24 pasajes
+    activos, 1 anulación y 2 pasajeros en espera.
+
+  Comentarios:
+    Cada función tiene un comentario o docstring que explica su función.
+
+7. EXPLICACIÓN CORTA DE CADA ESTRUCTURA
+------------------------------------------------------------------------
+NODO (nodo.py)
+  Es un bloque con dos partes:
+    dato: el pasaje, pasajero o número que guarda.
+    siguiente: la dirección del próximo nodo (o None si es el último).
+  La lista, la pila y la cola usan el mismo Nodo; lo que cambia es cómo
+  se conectan.
+
+LISTA ENLAZADA (lista_pasajeros.py)
+  La lista tiene una "cabeza" (primer nodo). Para insertar al final se
+  recorre hasta el último nodo y se enlaza el nuevo. Para buscar o
+  eliminar se recorre desde la cabeza comparando el DNI.
+  Se usa porque los pasajeros de un viaje crecen y disminuyen, y no
+  queremos mover todos los elementos como en un arreglo.
+
+PILA (pila.py)
+  Sigue LIFO (Last In, First Out): el último que entra es el primero
+  que sale. Apilar coloca un nodo en el tope; desapilar quita el tope.
+  Se usa para las anulaciones: la última anulación es la primera que
+  se puede deshacer.
+
+COLA (cola.py)
+  Sigue FIFO (First In, First Out): el primero que llega es el primero
+  que se atiende. Encolar agrega al final; desencolar quita el primero.
+  Se usa para la lista de espera de un viaje lleno.
+
+MATRIZ DE ASIENTOS (matriz_asientos.py)
+  Es una matriz de filas x columnas. Cada celda guarda "Libre" u
+  "Ocupado". El usuario escribe fila y columna desde 1; internamente
+  se resta 1 para usar los índices de Python.
+  Ventaja: saber si un asiento está libre es directo, sin recorrer una
+  lista, y el mapa se dibuja con dos for.
+
+GRAFO (grafo_rutas.py)
+  Las ciudades son los vértices y las rutas directas son las aristas.
+  La matriz de adyacencia guarda 1 si hay ruta directa y 0 si no.
+  Warshall calcula la matriz de alcanzabilidad: 1 si se puede llegar
+  aunque sea con escalas.
+
+BÚSQUEDAS (busquedas.py)
+  Secuencial: recorre desde la primera posición hasta encontrar el
+  valor. Funciona con datos desordenados. Tiempo O(n).
+  Binaria: requiere datos ordenados; compara con el centro y descarta
+  la mitad. Tiempo O(log n). Se usa para las ciudades ordenadas.
+
+8. FLUJO DE UNA VENTA (PARA EXPLICAR EN VIVO)
+------------------------------------------------------------------------
+  1. main.py muestra el menú y el usuario elige la opción 3.
+  2. accion_vender_pasaje() pide el código del viaje.
+  3. SistemaTransporte.buscar_viaje() usa búsqueda secuencial sobre los
+     códigos de los viajes.
+  4. Se muestra el mapa de asientos.
+  5. Se piden DNI, nombre, edad, teléfono y condición.
+  6. _crear_pasajero() valida los datos y crea el objeto Pasajero.
+  7. Se comprueba que el viaje no esté lleno y que el DNI no tenga ya
+     un pasaje en ese viaje.
+  8. Se elige el asiento o se busca el primero libre.
+  9. Se crea el objeto Pasaje con el código P001, P002...
+ 10. Se marca el asiento como Ocupado en la matriz.
+ 11. Se inserta el Pasaje al final de la lista enlazada del viaje.
+ 12. Se muestra el boleto.
+
+9. FLUJO DE UNA ANULACIÓN Y DE LA PILA
+------------------------------------------------------------------------
+  1. Se busca el pasaje por DNI en la lista enlazada del viaje.
+  2. Se elimina el nodo de la lista.
+  3. Se marca el asiento como Libre en la matriz.
+  4. El pasaje se marca como Anulado y se apila (push).
+  5. La opción 5 mira el tope de la pila y, si el asiento sigue libre,
+     lo ocupa otra vez, marca el pasaje como Vendido y lo devuelve a
+     la lista. Luego desapila (pop).
+  6. Si el asiento ya fue vendido a otra persona, el sistema no deja
+     deshacer y muestra un mensaje.
+
+10. FLUJO DE LA COLA DE ESPERA
+------------------------------------------------------------------------
+  1. Cuando un viaje está lleno, se puede anotar un pasajero en la cola.
+  2. El pasajero entra al final (encolar).
+  3. Si se anula un pasaje, queda un asiento libre.
+  4. La opción 9, subopción 2, atiende al primero de la cola (frente),
+     le vende el asiento libre y lo saca de la cola (desencolar).
+  5. Si no hay asientos libres, el sistema avisa que todavía no se
+     puede atender.
+
+11. CÓMO FUNCIONA WARSHALL
+------------------------------------------------------------------------
+  Se parte de la matriz de adyacencia. La diagonal se pone en 1 porque
+  una ciudad siempre se alcanza a sí misma.
+  Luego, para cada ciudad intermedia k:
+    si desde i se llega a k y desde k se llega a j,
+    entonces desde i se llega a j.
+  Se repite con todas las ciudades como intermedias. Al final, la
+  matriz indica si existe algún camino, directo o con escalas.
+  Es el algoritmo que responde a la pregunta "¿existe ruta entre dos
+  ciudades?".
+
+12. TABLA DE PRUEBAS (SE PUEDE COPIAR AL INFORME)
+------------------------------------------------------------------------
+  N.º | Entrada                                      | Resultado esperado                                      | Obtenido
+  ----|----------------------------------------------|---------------------------------------------------------|---------
+   1  | Opción 1                                     | Se listan 5 viajes; V005 aparece LLENO                   | OK
+   2  | Opción 2, viaje V001                         | Mapa 10x4 con 8 ocupados y 32 libres                     | OK
+   3  | Opción 3, V001, DNI 80123456, asiento F1-C3   | Se vende P026, asiento ocupado, quedan 31 libres         | OK
+   4  | Opción 3, DNI repetido 80123456 en V001       | Error: el pasajero ya tiene pasaje en ese viaje         | OK
+   5  | Opción 3, V005                               | Error: el viaje está lleno; sugiere lista de espera      | OK
+   6  | Opción 4, V001, DNI 70123456                  | P001 pasa a Anulado y se apila                           | OK
+   7  | Opción 5, confirmar deshacer                  | P001 vuelve a Vendido y se ocupa su asiento              | OK
+   8  | Opción 7, Nueva Cajamarca -> Lima             | Existe ruta, pero con escalas                            | OK
+   9  | Opción 7, Lima -> Nueva Cajamarca             | No existe ruta en el grafo                               | OK
+  10  | Opción 10, DNI 70123456                       | Encuentra P001 en V001, asiento F1-C1                    | OK
+  11  | Opción 11, "tarapoto"                         | Encuentra Tarapoto (TAR) con rutas a NCJ y CHI           | OK
+  12  | Opción 9: anular V005 y atender cola          | Gladys (primera) recibe el asiento libre                 | OK
+
+13. CAMBIOS PEQUEÑOS QUE PUEDEN PEDIR EN LA EXPOSICIÓN
+------------------------------------------------------------------------
+  a) Cambiar el precio de un viaje:
+     En datos_prueba.py, cambiar 25.0 por otro valor en la tupla de V001.
+     Ejecutar de nuevo y mostrar el nuevo precio en la venta.
+
+  b) Agregar una ciudad:
+     En datos_prueba.py, agregar una tupla en la lista "ciudades" y una
+     ruta en la lista "rutas". Volver a ejecutar.
+
+  c) Agregar una fila al bus:
+     En datos_prueba.py, cambiar el 10 por 11 en las filas del bus.
+     La matriz se crea automáticamente con la nueva fila.
+
+  d) Agregar una condición de pasajero:
+     En modelos.py, agregar el texto a la tupla CONDICIONES. El menú de
+     condiciones lo mostrará automáticamente.
+
+  e) Validar que el DNI no empiece con 0:
+     En validaciones.py, dentro de es_dni_valido(), agregar:
+         if dni[0] == "0": return False
+
+  f) Cambiar el nombre de la empresa:
+     En vistas.py, cambiar el texto de mostrar_banner().
+
+14. POSIBLES PREGUNTAS DEL PROFESOR Y RESPUESTAS CORTAS
+------------------------------------------------------------------------
+  ¿Por qué usaron una matriz para los asientos?
+    Porque el bus tiene filas y columnas fijas y se necesita consultar
+    un asiento por su posición en forma directa; además permite dibujar
+    el mapa con dos ciclos.
+
+  ¿Por qué una lista enlazada para los pasajeros?
+    Porque la cantidad de pasajeros cambia: se agregan al vender y se
+    quitan al anular, sin tener que mover todos los elementos.
+
+  ¿Por qué una pila para las anulaciones?
+    Porque la última anulación debe ser la primera en poder deshacerse
+    (LIFO). La pila guarda ese historial.
+
+  ¿Por qué una cola para la lista de espera?
+    Porque se debe respetar el orden de llegada (FIFO): el primero que
+    se anotó es el primero que debe ser atendido.
+
+  ¿Qué diferencia hay entre búsqueda secuencial y binaria?
+    La secuencial revisa uno por uno y funciona con datos desordenados.
+    La binaria exige datos ordenados, parte el arreglo por la mitad y
+    es más rápida en arreglos grandes.
+
+  ¿Qué hace Warshall?
+    Calcula la matriz de alcanzabilidad: indica si se puede ir de una
+    ciudad a otra, directo o con escalas. Usa tres ciclos y la ciudad
+    intermedia k.
+
+  ¿Qué pasa si se anula un pasaje y luego se vende ese asiento?
+    La anulación queda en la pila, pero al intentar deshacerla el
+    sistema detecta que el asiento ya está ocupado y no lo permite.
+
+  ¿Dónde está la "base de datos"?
+    No hay base de datos porque el proyecto lo prohíbe. Los datos viven
+    en memoria dentro de SistemaTransporte y se cargan desde
+    datos_prueba.py al iniciar.
+
+  ¿Qué es el DAO en este proyecto?
+    SistemaTransporte cumple el papel de DAO en memoria: concentra las
+    operaciones para buscar, vender, anular y reportar, y las vistas no
+    acceden directamente a las estructuras.
+
+  ¿Se usó append/pop para la pila o la cola?
+    No. La lista, la pila y la cola usan Nodo y punteros. Los append que
+    aparecen en otros archivos son para construir arreglos o matrices,
+    que sí están permitidos por el enunciado.
+
+15. NOTAS FINALES
+------------------------------------------------------------------------
+  - El sistema no usa archivos externos ni base de datos.
+  - No usa librerías externas: solo Python estándar.
+  - Los datos se pierden al cerrar el programa; eso es correcto porque
+    el enunciado pide que vivan en memoria.
+  - Si se quiere reiniciar la demostración, basta con cerrar y volver a
+    ejecutar python main.py.
+  - Antes de entregar, completar los nombres de la sección 4 y probar
+    el programa en la computadora donde se hará la exposición.
+========================================================================
