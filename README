@@ -73,34 +73,31 @@ Cada archivo tiene un comentario encima de cada función explicando qué
 hace. Los nombres están en español para que el código sea fácil de
 explicar en la exposición.
 
-4. DISTRIBUCIÓN DEL TRABAJO (COMPLETAR CON LOS NOMBRES)
+4. DISTRIBUCIÓN DEL TRABAJO
 ------------------------------------------------------------------------
-Reemplazar "COMPLETAR" por el nombre del integrante que programó y
-explicará cada módulo. Todos deben poder explicar su parte y hacer una
-prueba de escritorio.
 
-  Integrante 1: COMPLETAR
+  Integrante 1: Sepa Dios como se llama
     Módulos: estructuras/nodo.py, estructuras/lista_pasajeros.py,
              validaciones.py
     Explica: qué es un nodo, cómo se inserta/elimina/busca en una lista
              enlazada y cómo se validan los datos.
 
-  Integrante 2: COMPLETAR
+  Integrante 2: Nose
     Módulos: estructuras/pila.py, estructuras/cola.py, datos_prueba.py
     Explica: LIFO y FIFO, apilar/desapilar, encolar/desencolar y los
              datos de prueba.
 
-  Integrante 3: COMPLETAR
+  Integrante 3: Nose
     Módulos: estructuras/matriz_asientos.py, modelos.py
     Explica: la matriz de asientos, las clases Ciudad, Bus, Viaje,
              Pasajero y Pasaje, y la relación entre ellas.
 
-  Integrante 4: COMPLETAR
+  Integrante 4: Nose
     Módulos: estructuras/grafo_rutas.py, estructuras/busquedas.py
     Explica: matriz de adyacencia, Warshall, búsqueda secuencial y
              búsqueda binaria.
 
-  Integrante 5: COMPLETAR
+  Integrante 5: Nose
     Módulos: sistema.py, vistas.py, main.py
     Explica: cómo se conecta todo, el menú, el flujo de venta y el
              reporte general.
