@@ -43,8 +43,9 @@ Pasos en VS Code:
   6. Para salir, elegir la opción 0.
 
 Importante: ejecutar siempre desde la carpeta principal del proyecto,
-porque los archivos se importan entre sí (por ejemplo, main.py importa
-sistema.py y la carpeta estructuras/).
+porque los archivos se importan entre sí (main.py usa consola.py,
+validaciones.py y datos_prueba.py; datos_prueba.py usa clases.py y
+sistema.py).
 
 3. ORGANIZACIÓN DE LOS ARCHIVOS
 ------------------------------------------------------------------------

@@ -1,8 +1,8 @@
 """Programa principal del sistema MG Bus.
 
 Muestra el menu, pide los datos al usuario y llama a las funciones del
-sistema. La logica esta en sistema.py y las estructuras en la carpeta
-estructuras/. Para ejecutar: python main.py
+sistema. La logica esta en sistema.py, la impresion en consola.py y las
+estructuras en la carpeta estructuras/. Para ejecutar: python main.py
 """
 
 import validaciones
