@@ -8,7 +8,7 @@ No imprime nada; las respuestas se muestran desde las vistas.
 from estructuras.busquedas import busqueda_binaria, busqueda_secuencial
 from estructuras.grafo_rutas import GrafoRutas
 from estructuras.pila import Pila
-from modelos import Pasajero, Pasaje
+from clases import Pasajero, Pasaje
 from validaciones import (
     es_condicion_valida,
     es_dni_valido,

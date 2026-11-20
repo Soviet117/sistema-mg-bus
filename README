@@ -53,7 +53,7 @@ transporte/
 |-- main.py                  Menú principal y flujo de cada opción.
 |-- sistema.py               Lógica y "DAO" en memoria: ventas, anulaciones,
 |                            rutas, cola y reportes.
-|-- modelos.py               Clases del negocio: Ciudad, Bus, Viaje,
+|-- clases.py                Clases del negocio: Ciudad, Bus, Viaje,
 |                            Pasajero y Pasaje.
 |-- datos_prueba.py          Datos de prueba escritos en el código.
 |-- vistas.py                Tablas, menús, mapas y mensajes de consola.
@@ -88,7 +88,7 @@ explicar en la exposición.
              datos de prueba.
 
   Integrante 3: Nose
-    Módulos: estructuras/matriz_asientos.py, modelos.py
+    Módulos: estructuras/matriz_asientos.py, clases.py
     Explica: la matriz de asientos, las clases Ciudad, Bus, Viaje,
              Pasajero y Pasaje, y la relación entre ellas.
 
@@ -137,7 +137,7 @@ Casos útiles para la demostración:
 6. CÓMO SE CUMPLE LA RÚBRICA
 ------------------------------------------------------------------------
   Clases y TAD (mínimo 3):
-    Ciudad, Bus, Viaje, Pasajero y Pasaje en modelos.py.
+    Ciudad, Bus, Viaje, Pasajero y Pasaje en clases.py.
     Además, SistemaTransporte, MatrizAsientos, GrafoRutas, Pila, Cola
     y ListaPasajeros.
 
@@ -169,7 +169,7 @@ Casos útiles para la demostración:
 
   Organización en módulos:
     Un archivo por estructura, un archivo de lógica (sistema.py), uno
-    de modelos, uno de vistas, uno de validaciones, uno de datos y
+    de clases, uno de vistas, uno de validaciones, uno de datos y
     main.py.
 
   Datos de prueba:
@@ -312,7 +312,7 @@ BÚSQUEDAS (busquedas.py)
      La matriz se crea automáticamente con la nueva fila.
 
   d) Agregar una condición de pasajero:
-     En modelos.py, agregar el texto a la tupla CONDICIONES. El menú de
+     En clases.py, agregar el texto a la tupla CONDICIONES. El menú de
      condiciones lo mostrará automáticamente.
 
   e) Validar que el DNI no empiece con 0:

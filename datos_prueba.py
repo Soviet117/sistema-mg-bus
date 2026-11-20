@@ -5,7 +5,7 @@ Al iniciar, el sistema carga 10 ciudades, 15 rutas directas, 5 viajes,
 Asi se puede demostrar el sistema sin usar archivos ni base de datos.
 """
 
-from modelos import Bus, Ciudad, Viaje
+from clases import Bus, Ciudad, Viaje
 from sistema import SistemaTransporte
 
 

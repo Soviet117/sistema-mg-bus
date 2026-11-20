@@ -5,7 +5,7 @@ usan en el sistema, no solo en el menu. Asi los datos de prueba y los
 datos escritos por el usuario pasan por las mismas reglas.
 """
 
-from modelos import CONDICIONES
+from clases import CONDICIONES
 
 
 # Quita espacios sobrantes y escribe el nombre con mayuscula inicial.
