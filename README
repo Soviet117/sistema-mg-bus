@@ -51,7 +51,7 @@ sistema.py y la carpeta estructuras/).
 transporte/
 |
 |-- main.py                  Menú principal y flujo de cada opción.
-|-- sistema.py               Lógica y "DAO" en memoria: ventas, anulaciones,
+|-- sistema.py               Lógica y datos en memoria: ventas, anulaciones,
 |                            rutas, cola y reportes.
 |-- clases.py                Clases del negocio: Ciudad, Bus, Viaje,
 |                            Pasajero y Pasaje.
@@ -360,10 +360,10 @@ BÚSQUEDAS (busquedas.py)
     en memoria dentro de SistemaTransporte y se cargan desde
     datos_prueba.py al iniciar.
 
-  ¿Qué es el DAO en este proyecto?
-    SistemaTransporte cumple el papel de DAO en memoria: concentra las
-    operaciones para buscar, vender, anular y reportar, y las vistas no
-    acceden directamente a las estructuras.
+  ¿Dónde está la lógica del sistema?
+    En sistema.py. La clase SistemaTransporte concentra las operaciones
+    para buscar, vender, anular y reportar. main.py solo muestra el menú
+    y llama a las funciones; consola.py imprime los resultados.
 
   ¿Se usó append/pop para la pila o la cola?
     No. La lista, la pila y la cola usan Nodo y punteros. Los append que

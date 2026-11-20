@@ -1,7 +1,7 @@
-"""Vistas de consola: menus, tablas y mensajes del sistema.
+"""Funciones de consola: menus, tablas y mensajes del sistema.
 
-Esta capa solo se encarga de mostrar informacion y de dar formato a la
-salida. La logica de ventas, anulaciones y rutas esta en sistema.py.
+Aqui solo se muestra informacion y se da formato a la salida. Las
+operaciones de venta, anulacion y rutas estan en sistema.py.
 """
 
 

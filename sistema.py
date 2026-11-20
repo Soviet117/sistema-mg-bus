@@ -1,8 +1,8 @@
-"""Logica principal del sistema de venta de pasajes.
+"""Logica y datos del sistema de venta de pasajes.
 
-Esta clase hace de controlador y de DAO en memoria: guarda las ciudades,
-los viajes y las anulaciones, y ofrece las operaciones que usa el menu.
-No imprime nada; las respuestas se muestran desde las vistas.
+La clase SistemaTransporte guarda las ciudades, los viajes y las
+anulaciones, y ofrece las operaciones que usa el menu. No imprime nada:
+main.py llama a estas operaciones y consola.py muestra los resultados.
 """
 
 from estructuras.busquedas import busqueda_binaria, busqueda_secuencial
