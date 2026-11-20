@@ -56,7 +56,7 @@ transporte/
 |-- clases.py                Clases del negocio: Ciudad, Bus, Viaje,
 |                            Pasajero y Pasaje.
 |-- datos_prueba.py          Datos de prueba escritos en el código.
-|-- vistas.py                Tablas, menús, mapas y mensajes de consola.
+|-- consola.py               Tablas, menús, mapas y mensajes de consola.
 |-- validaciones.py          Reglas de validación y lectura de datos.
 |
 |-- estructuras/
@@ -98,7 +98,7 @@ explicar en la exposición.
              búsqueda binaria.
 
   Integrante 5: Nose
-    Módulos: sistema.py, vistas.py, main.py
+    Módulos: sistema.py, consola.py, main.py
     Explica: cómo se conecta todo, el menú, el flujo de venta y el
              reporte general.
 
@@ -169,7 +169,7 @@ Casos útiles para la demostración:
 
   Organización en módulos:
     Un archivo por estructura, un archivo de lógica (sistema.py), uno
-    de clases, uno de vistas, uno de validaciones, uno de datos y
+    de clases, uno de consola, uno de validaciones, uno de datos y
     main.py.
 
   Datos de prueba:
@@ -320,7 +320,7 @@ BÚSQUEDAS (busquedas.py)
          if dni[0] == "0": return False
 
   f) Cambiar el nombre de la empresa:
-     En vistas.py, cambiar el texto de mostrar_banner().
+     En consola.py, cambiar el texto de mostrar_banner().
 
 14. POSIBLES PREGUNTAS DEL PROFESOR Y RESPUESTAS CORTAS
 ------------------------------------------------------------------------
